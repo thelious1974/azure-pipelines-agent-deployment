@@ -8,7 +8,7 @@ param
     [string] $TenantId,
     [string] $Location,
     [string] $RGName,
-    [string] $StorageAccountName
+    [string] $StorageAccountName,
     [string] $InstallPassword
 )
 
