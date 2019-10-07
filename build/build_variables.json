@@ -1,19 +1,19 @@
 {
     "variables": {
-        "client_id": "__Azure.ClientId__",
-        "subscription_id": "__Azure.SubscriptionId__",
-        "tenant_id": "__Azure.TenantId__",
-        "location": "__Azure.Location__",
-        "resource_group": "__Azure.ResourceGroup__",
-        "storage_account": "__Azure.StorageAccountName__",
-        "VstsBaseUrl": "__ADOAccount.VstsBaseUrl__",
-        "agentName": "__ADOAccount.AgentName__",
-        "agentPool": ""
+        "client_id": "__AzureClientId__",
+        "subscription_id": "__AzureSubscriptionId__",
+        "tenant_id": "__AzureTenantId__",
+        "location": "__AzureLocation__",
+        "resource_group": "__AzureResourceGroup__",
+        "storage_account": "__AzureStorageAccountName__",
+        "VstsBaseUrl": "__AzureDevopsBaseUrl__",
+        "agentName": "__AzureDevopsAgentName__",
+        "agentPool": "__AzureDevopsAgentPool__"
 
     },
     "sensitive-variables": {
-        "client_secret": "__Azure.ClientSecret__",
+        "client_secret": "__AzureClientSecret__",
         "install_password": "__InstallPassword__",
-        "PAT_TOKEN": "__ADOAccount.PAT__"
+        "PAT_TOKEN": "__AzureDevopsPatToken__"
     } 
 }
