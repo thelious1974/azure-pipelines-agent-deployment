@@ -17,17 +17,3 @@
         "PAT_TOKEN": "__ADOAccount.PAT__"
     } 
 }
-
-
--var "client_id=$($SPClientId)" 
--var "client_secret=$($SPClientSecret)" 
--var "subscription_id=$($SubscriptionId)" 
--var "tenant_id=$($TenantId)" 
--var "location=$($Location)" 
--var "resource_group=$($RGName)" 
--var "storage_account=$($StorageAccountName)" 
--var "install_password=$($InstallPassword)" 
--var "PAT_TOKEN=$($PatToken)" 
--var "VstsBaseUrl=$($AzureDevopsProjectUrl)" 
--var "agentName=$($AgentName)" 
--var "agentPool=$($AgentPool)"
