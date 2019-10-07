@@ -38,7 +38,7 @@ try {
     Write-Output "Starting packer..."
     try {
         Start-Transcript -Path $packerLog
-        & $packerExecutable build  --var-file="$($basePath)/build_variables.json" "$($packerTemplate)" | Out-Default
+        & $packerExecutable build  --var-file="$($PSScriptRoot)/build_variables.json" "$($packerTemplate)" | Out-Default
     }
     finally {
         Stop-Transcript -ErrorAction SilentlyContinue
