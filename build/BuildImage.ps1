@@ -87,10 +87,6 @@ try {
         throw $err
     }
 
-	# Copy InstalledSoftware.md
-	Write-Output "Copy installed software file $installedSoftwarePath to $packerBinFolder."
-	Copy-Item -Path $installedSoftwarePath -Destination $packerBinFolder -Force
-
     # Read VHD URI
 	Write-Output "Reading VHD URI."
     $logContent = Get-Content -Path $packerLog -Tail 100
