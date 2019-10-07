@@ -27,7 +27,7 @@ jobs:
       ArtifactName: build
   
   - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: deploy'
+    displayName: 'Publish Artifact: resources'
     inputs:
-      PathtoPublish: deploy
-      ArtifactName: deploy
+      PathtoPublish: resources
+      ArtifactName: resources

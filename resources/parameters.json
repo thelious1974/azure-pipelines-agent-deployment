@@ -1,0 +1,24 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "__AzureLocation__"
+        },
+        "osDiskVhdUri": {
+            "value": "__OsDiskLocation__"
+        },
+        "vmName": {
+            "value": "__BuildAgentVMName__"
+        },
+        "vmSize": {
+            "value": "__BuildAgentVMSize__"
+        },
+        "adminUserName": {
+            "value": "__BuildAgentUsername__"
+        },
+        "adminPassword": {
+            "value": "__BuildAgentPassword__"
+        }
+    }
+}

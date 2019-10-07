@@ -1,0 +1,24 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "West Europe"
+        },
+        "osDiskVhdUri": {
+            "value": "some-url-to-disk-image"
+        },
+        "vmName": {
+            "value": "prefix-for-vmname"
+        },
+        "vmSize": {
+            "value": "Standard_B2S"
+        },
+        "adminUserName": {
+            "value": "admin"
+        },
+        "adminPassword": {
+            "value": "not-a-real-password"
+        }
+    }
+}
