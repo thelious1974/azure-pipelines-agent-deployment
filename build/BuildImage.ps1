@@ -8,29 +8,10 @@ param
     [string] $TenantId,
     [string] $Location,
     [string] $RGName,
-    [string] $StorageAccountName
+    [string] $StorageAccountName,
+    [string] $InstallPassword
 )
 
-function GenerateRandomPassword([int] $Length = 16) {
-    $rng = $null
-
-    try {
-        $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-        $buffer = [byte[]]::new($Length)
-        $rng.GetBytes($buffer)
-        $password = [System.Convert]::ToBase64String($buffer)
-        $password = $password.Replace('=', '').Replace('+', '').Replace('/', '')
-        return $password.Substring(0, $Length)
-    }
-    catch {
-        throw
-    }
-    finally {
-        if ($null -ne $rng) {
-            $rng.Dispose()
-        }
-    }
-}
 
 $packerSourceUrl = 'https://releases.hashicorp.com/packer/1.3.5/packer_1.3.5_windows_amd64.zip'
 
@@ -44,10 +25,6 @@ $packerTemplate = Join-Path -Path $basePath -ChildPath 'images\win\vs2017-Server
 $installedSoftwarePath = Join-Path -Path $basePath -ChildPath 'images\win\InstalledSoftware.md'
 
 try {
-
-    # Generates password for 'install' user
-    $installPassword = GenerateRandomPassword
-
     # Downloads Packer
 
     $packerZipPath = Join-Path -Path $packerBinFolder -ChildPath 'packer.zip'
@@ -75,7 +52,7 @@ try {
     Write-Output "Starting packer..."
     try {
         Start-Transcript -Path $packerLog
-        & $packerExecutable build -var "client_id=$($SPClientId)" -var "client_secret=$($SPClientSecret)" -var "subscription_id=$($SubscriptionId)" -var "tenant_id=$($TenantId)" -var "location=$($Location)" -var "resource_group=$($RGName)" -var "storage_account=$($StorageAccountName)" -var "install_password=$($installPassword)" "$($packerTemplate)" | Out-Default
+        & $packerExecutable build -var "client_id=$($SPClientId)" -var "client_secret=$($SPClientSecret)" -var "subscription_id=$($SubscriptionId)" -var "tenant_id=$($TenantId)" -var "location=$($Location)" -var "resource_group=$($RGName)" -var "storage_account=$($StorageAccountName)" -var "install_password=$($InstallPassword)" "$($packerTemplate)" | Out-Default
     }
     finally {
         Stop-Transcript -ErrorAction SilentlyContinue
