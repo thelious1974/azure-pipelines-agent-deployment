@@ -1,18 +1,5 @@
 # Run packer to build VS2017-Server-Azure image in specified Azure Subscription
 
-param
-(
-    [string] $SPClientId,
-    [string] $SPClientSecret,
-    [string] $SubscriptionId,
-    [string] $TenantId,
-    [string] $Location,
-    [string] $RGName,
-    [string] $StorageAccountName,
-    [string] $InstallPassword
-)
-
-
 $packerSourceUrl = 'https://releases.hashicorp.com/packer/1.3.5/packer_1.3.5_windows_amd64.zip'
 
 $basePath = Split-Path -Path $PSScriptRoot -Parent
@@ -51,7 +38,7 @@ try {
     Write-Output "Starting packer..."
     try {
         Start-Transcript -Path $packerLog
-        & $packerExecutable build -var "client_id=$($SPClientId)" -var "client_secret=$($SPClientSecret)" -var "subscription_id=$($SubscriptionId)" -var "tenant_id=$($TenantId)" -var "location=$($Location)" -var "resource_group=$($RGName)" -var "storage_account=$($StorageAccountName)" -var "install_password=$($InstallPassword)" "$($packerTemplate)" | Out-Default
+        & $packerExecutable build  --var-file build_variables.json "$($packerTemplate)" | Out-Default
     }
     finally {
         Stop-Transcript -ErrorAction SilentlyContinue
