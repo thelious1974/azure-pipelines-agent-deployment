@@ -22,7 +22,6 @@ if ([string]::IsNullOrEmpty($packerBinFolder)) {
 }
 
 $packerTemplate = Join-Path -Path $basePath -ChildPath 'images\win\vs2017-Server2016-Azure.json'
-$installedSoftwarePath = Join-Path -Path $basePath -ChildPath 'images\win\InstalledSoftware.md'
 
 try {
     # Downloads Packer
