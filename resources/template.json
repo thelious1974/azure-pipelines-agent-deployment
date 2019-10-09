@@ -130,7 +130,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[variables('publicIPAddressName')]",
-                "[variables('vnetName')]"
+                "[variables('subnetname')]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -139,10 +139,10 @@
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('subnetname'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), variables('subnetname'))]"
                             }
                         }
                     }
