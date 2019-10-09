@@ -116,7 +116,7 @@
             "name": "[variables('publicIPAddressName')]",
             "location": "[parameters('location')]",
             "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
                     "domainNameLabel": "[parameters('vmName')]"
                 }
