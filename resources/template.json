@@ -186,13 +186,13 @@
                     "bootDiagnostics": {
                         "enabled": false
                     }
-                },
-                "dependsOn": [
-                    "[variables('storageAccountName')]",
-                    "[variables('imageName')]",
-                    "[variables('nicName')]"
-                ]
-            }
+                }
+            },
+            "dependsOn": [
+                "[variables('storageAccountName')]",
+                "[variables('imageName')]",
+                "[variables('nicName')]"
+            ]
         }
     ]
 }
