@@ -23,7 +23,8 @@
         }
     },
     "variables": {
-        "storageAccountName": "[toLower(concat(replace(parameters('vmName'), '-', ''), 'str'))]",
+        "cleanName": "[toLower(replace(parameters('vmName'), '-', ''))]",
+        "storageAccountName": "[concat(variables('cleanName'), 'str')]",
         "imageName": "[concat(parameters('vmName'), '-image')]",
         "vnetname": "[concat(parameters('vmName'), '-vnet')]",
         "subnetname": "[concat(parameters('vmName'), '-subnet')]",
@@ -118,7 +119,7 @@
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
-                    "domainNameLabel": "[parameters('vmName')]"
+                    "domainNameLabel": "[parameters('cleanName')]"
                 }
             }
         },
