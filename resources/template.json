@@ -23,7 +23,7 @@
         }
     },
     "variables": {
-        "storageAccountName": "[concat(replace(parameters('vmName'), '-', ''), 'str')]",
+        "storageAccountName": "[toLower(concat(replace(parameters('vmName'), '-', ''), 'str'))]",
         "imageName": "[concat(parameters('vmName'), '-image')]",
         "vnetname": "[concat(parameters('vmName'), '-vnet')]",
         "subnetname": "[concat(parameters('vmName'), '-subnet')]",
