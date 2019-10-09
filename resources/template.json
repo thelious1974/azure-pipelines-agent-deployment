@@ -119,7 +119,7 @@
             "properties": {
                 "publicIPAllocationMethod": "Dynamic",
                 "dnsSettings": {
-                    "domainNameLabel": "[parameters('cleanName')]"
+                    "domainNameLabel": "[variables('cleanName')]"
                 }
             }
         },
